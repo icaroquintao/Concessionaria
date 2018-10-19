@@ -62,5 +62,66 @@ CREATE TABLE Cliente(
 	numConta VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Pfisica
+CREATE TABLE Pfisica(
+	idCliente INT(5) NOT NULL,
+	cpf VARCHAR(15) NOT NULL UNIQUE,
+	FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)
+);
 
+CREATE TABLE Pjuridica(
+	idCliente INT(5) NOT NULL,
+	cnpj VARCHAR(20) NOT NULL UNIQUE,
+	FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente)
+);
+
+CREATE TABLE Revisao(
+	idRevisao INT(5) AUTO_INCREMENT PRIMARY KEY,
+	efetivado TINYINT(1) DEFAULT 1,
+	valorConserto FLOAT(10),
+	dataRevisao VARCHAR(11) NOT NULL,
+	idCliente INT(5) NOT NULL,
+	valorRevisao FLOAT(10),
+	idVeiculo INT(5) NOT NULL,
+	idMecanico INT(5) NOT NULL,
+	FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente),
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo),
+	FOREIGN KEY (idMecanico) REFERENCES Funcionario(idFuncionario)
+);
+
+CREATE TABLE Aluguel(
+	idVeiculo INT(5) NOT NULL,
+	idCliente INT(5) NOT NULL,
+	idVendedor INT(5) NOT NULL,
+	idRevisao INT(5) NOT NULL,
+	PRIMARY KEY (idVeiculo,idCliente,idVendedor,idRevisao),
+	valorTotal FLOAT(10),
+	kmRodados INT(5),
+	dataFim VARCHAR(11),
+	dataInicio VARCHAR(11) NOT NULL,
+	multaAtraso FLOAT(10),
+	finalizado TINYINT(1) DEFAULT 0,
+	FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente),
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo),
+	FOREIGN KEY (idVendedor) REFERENCES Funcionario(idFuncionario),
+	FOREIGN KEY (idRevisao) REFERENCES Revisao(idRevisao)
+);
+
+CREATE TABLE CompraVenda(
+	idCompraVenda INT(5) AUTO_INCREMENT PRIMARY KEY,
+	dataCompraVenda VARCHAR(11) NOT NULL,
+	idVendedor INT(5) NOT NULL,
+	idCliente INT(5) NOT NULL,
+	idVeiculo INT(5) NOT NULL,
+	FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente),
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo),
+	FOREIGN KEY (idVendedor) REFERENCES Funcionario(idFuncionario)
+);
+
+
+CREATE TABLE Troca (
+	idVenda INT(5) NOT NULL,
+	idCompra INT(5) NOT NULL,
+	PRIMARY KEY (idVenda,idCompra),
+	FOREIGN KEY (idVenda) REFERENCES CompraVenda(idCompraVenda),
+	FOREIGN KEY (idCompra) REFERENCES CompraVenda(idCompraVenda)
+);
