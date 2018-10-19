@@ -1,0 +1,64 @@
+USE ConcessionariaDB;
+
+CREATE TABLE Veiculo(
+	idVeiculo INT(5) AUTO_INCREMENT PRIMARY KEY,
+	km INT(10) NOT NULL,
+	situacao INT NOT NULL,
+	placa VARCHAR(10),
+	tipo VARCHAR(15) NOT NULL,
+	modelo VARCHAR(15) NOT NULL,
+	montadora VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE Cor(
+	idVeiculo INT(5) NOT NULL,
+	cor VARCHAR(10) NOT NULL,
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo)
+);
+
+CREATE TABLE Pvenda(
+	idVeiculo INT(5) NOT NULL,
+	precoVenda FLOAT(10) NOT NULL,
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo)
+);
+
+CREATE TABLE Paluguel(
+	idVeiculo INT(5) NOT NULL,
+	precoFixo FLOAT(10) NOT NULL,
+	precoPorKm FLOAT(10) NOT NULL,
+	FOREIGN KEY (idVeiculo) REFERENCES Veiculo(idVeiculo)
+);
+
+CREATE TABLE Funcionario(
+	idFuncionario INT(5) AUTO_INCREMENT PRIMARY KEY,
+	cpfFuncionario VARCHAR(15) NOT NULL UNIQUE,
+	salarioFixo FLOAT(10) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
+	telefone VARCHAR(15)
+);
+
+CREATE TABLE Vendedor(
+	idFuncionario INT(5) NOT NULL,
+	porcentagemComissao INT(2) NOT NULL,
+	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
+);
+
+CREATE TABLE Mecanico(
+	idFuncionario INT(5) NOT NULL,
+	comissaoPorRevisao FLOAT(5) NOT NULL,
+	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
+);
+
+CREATE TABLE Cliente(
+	idCliente INT(5) AUTO_INCREMENT PRIMARY KEY,
+	telefone VARCHAR(15),
+	nome VARCHAR(50) NOT NULL,
+	cep VARCHAR(10),
+	complemento VARCHAR(30),
+	numero VARCHAR(5),
+	numCartao VARCHAR(20) NOT NULL,
+	numConta VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Pfisica
+
