@@ -1,3 +1,5 @@
+CREATE DATABASE ConcessionariaDB;
+
 USE ConcessionariaDB;
 
 CREATE TABLE Veiculo(
