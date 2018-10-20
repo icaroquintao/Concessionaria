@@ -28,100 +28,100 @@ showstringspaces=false
 
 \begin{document}
 
-VEICULO(\underline{idVeiculo}, km, situacao, placa, tipo, modelo, montadora)
+Veiculo(\underline{idVeiculo}, km, situacao, placa, tipo, modelo, montadora)
 
 \vspace{1cm}
 
-COR(\underline{idVeiculo}, cor)
+Cor(\underline{idVeiculo}, cor)
 \begin{itemize}
-\item \emph{idVeiculo} referencia VEICULO(idVeiculo)
+\item \emph{idVeiculo} referencia Veiculo(idVeiculo)
 \end{itemize}
 \vspace{1cm}
 
-PVENDA(\underline{idVeiculoVenda}, precoVenda)
+Pvenda(\underline{idVeiculoVenda}, precoVenda)
 \begin{itemize}
-\item \emph{idVeiculoVenda} referencia VEICULO(idVeiculo)
-\end{itemize}
-
-\vspace{1cm}
-
-PALUGUEL(\underline{idVeiculoAluguel}, precoFixo, precoPorKm)
-\begin{itemize}
-\item \emph{idVeiculoAluguel} referencia VEICULO(idVeiculo)
+\item \emph{idVeiculoVenda} referencia Veiculo(idVeiculo)
 \end{itemize}
 
 \vspace{1cm}
 
-FUNCIONARIO(\underline{idFuncionario},cpfFuncionario, salarioFixo, nome, telefone)
-
-\vspace{1cm}
-
-VENDEDOR(\underline{idFuncionario}, porcentagemComissao)
+Paluguel(\underline{idVeiculoAluguel}, precoFixo, precoPorKm)
 \begin{itemize}
-\item \emph{idFuncionario} referencia FUNCIONARIO(idFuncionario)
+\item \emph{idVeiculoAluguel} referencia Veiculo(idVeiculo)
 \end{itemize}
 
 \vspace{1cm}
 
-MECANICO(\underline{idFuncionario},comissaoPorRevisao)
+Funcionario(\underline{idFuncionario},cpfFuncionario, salarioFixo, nome, telefone)
+
+\vspace{1cm}
+
+Vendedor(\underline{idFuncionario}, porcentagemComissao)
 \begin{itemize}
-\item \emph{idFuncionario} referencia FUNCIONARIO(idFuncionario)
+\item \emph{idFuncionario} referencia Funcionario(idFuncionario)
 \end{itemize}
 
 \vspace{1cm}
 
-CLIENTE(\underline{idCliente}, telefone, nome, cep, complemento, numero, numCartao, numConta)
-
-\vspace{1cm}
-
-PFISICA(\underline{idCliente}, cpf)
+Mecanico(\underline{idFuncionario},comissaoPorRevisao)
 \begin{itemize}
-\item \emph{idCliente} referencia CLIENTE(idCliente)
+\item \emph{idFuncionario} referencia Funcionario(idFuncionario)
 \end{itemize}
 
 \vspace{1cm}
 
-PJURIDICA(\underline{idCliente},cnpj)
+Cliente(\underline{idCliente}, telefone, nome, cep, complemento, numero, numCartao, numConta)
+
+\vspace{1cm}
+
+Pfisica(\underline{idCliente}, cpf)
 \begin{itemize}
-\item \emph{idCliente} referencia CLIENTE(idCliente)
+\item \emph{idCliente} referencia Cliente(idCliente)
 \end{itemize}
 
 \vspace{1cm}
 
-REVISAO(\underline{idRevisao}, efetivado, valorConserto, dataRevisao, idCliente, valorRevisao, idVeiculo, idMecanico)
-
+Pjuridica(\underline{idCliente},cnpj)
 \begin{itemize}
-\item \emph{idCliente} referencia CLIENTE(idCliente)
-\item \emph{idVeiculo} referencia VEICULO(idVeiculo)
-\item \emph{idMecanico} referencia FUNCIONARIO(idFuncionario)
+\item \emph{idCliente} referencia Cliente(idCliente)
 \end{itemize}
 
 \vspace{1cm}
 
-ALUGUEL(\underline{idVeiculo},\underline{idCliente}, \underline{idVendedor}, \underline{idRevisao}, valorTotal, kmRodados, dataFim, dataInicio, multaAtraso, finalizado)
+Revisao(\underline{idRevisao}, efetivado, valorConserto, dataRevisao, idCliente, valorRevisao, idVeiculo, idMecanico)
 
 \begin{itemize}
-\item \emph{idCliente} referencia CLIENTE(idCliente)
-\item \emph{idVeiculo} referencia VEICULO(idVeiculo)
-\item \emph{idVendedor} referencia FUNCIONARIO(idFuncionario)
-\item \emph{idRevisao} referencia REVISAO(idRevisao)
+\item \emph{idCliente} referencia Cliente(idCliente)
+\item \emph{idVeiculo} referencia Veiculo(idVeiculo)
+\item \emph{idMecanico} referencia Funcionario(idFuncionario)
 \end{itemize}
 
 \vspace{1cm}
 
-COMPRAVENDA(\underline{idCompraVenda}, dataCompraVenda, idVendedor, idCliente, idVeiculo)
+Aluguel(\underline{idVeiculo},\underline{idCliente}, \underline{idVendedor}, \underline{idRevisao}, valorTotal, kmRodados, dataFim, dataInicio, multaAtraso, finalizado)
 
 \begin{itemize}
-\item \emph{idCliente} referencia CLIENTE(idCliente)
-\item \emph{idVeiculo} referencia VEICULO(idVeiculo)
-\item \emph{idVendedor} referencia FUNCIONARIO(idFuncionario)
+\item \emph{idCliente} referencia Cliente(idCliente)
+\item \emph{idVeiculo} referencia Veiculo(idVeiculo)
+\item \emph{idVendedor} referencia Funcionario(idFuncionario)
+\item \emph{idRevisao} referencia Revisao(idRevisao)
 \end{itemize}
 
 \vspace{1cm}
 
-TROCA(\underline{idVenda},\underline{idCompra})
+CompraVenda(\underline{idCompraVenda}, dataCompraVenda, idVendedor, idCliente, idVeiculo)
+
 \begin{itemize}
-\item \emph{idVenda} referencia COMPRAVENDA(idCompraVenda)
-\item \emph{idCompra} referencia COMPRAVENDA(idCompraVenda)
+\item \emph{idCliente} referencia Cliente(idCliente)
+\item \emph{idVeiculo} referencia Veiculo(idVeiculo)
+\item \emph{idVendedor} referencia Funcionario(idFuncionario)
+\end{itemize}
+
+\vspace{1cm}
+
+Troca(\underline{idVenda},\underline{idCompra})
+\begin{itemize}
+\item \emph{idVenda} referencia CompraVenda(idCompraVenda)
+\item \emph{idCompra} referencia CompraVenda(idCompraVenda)
 \end{itemize}
 \end{document}
