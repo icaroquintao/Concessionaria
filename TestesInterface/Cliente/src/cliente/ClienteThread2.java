@@ -37,20 +37,14 @@ public class ClienteThread2  extends UnicastRemoteObject implements Runnable{
         String mensagem;
         int idAtual;
 
-        if(Cliente.idsMensagens.isEmpty())
-            idAtual = 0;
-        else
-            idAtual = Cliente.idsMensagens.get(Cliente.idsMensagens.size()-1);
-        
+        idAtual = Cliente.mensagens.size()-1;
         if(idAtual == banco.getId()-1)
             continue;
         while( idAtual < banco.getId()-1){
-            System.out.println(idAtual+" "+ (banco.getId()-1));
             String nome = banco.getName(idAtual+1);
-            interf = (ClienteClienteInterface) Naming.lookup("//localhost/"+nome);
+            interf = (ClienteClienteInterface) Naming.lookup(nome);
             mensagem = interf.getScript(idAtual+1);
             System.out.println(mensagem);
-            Cliente.idsMensagens.add(idAtual);
             Cliente.mensagens.add(mensagem);
             idAtual++;
             

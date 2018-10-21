@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package cliente;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -21,23 +22,23 @@ public class Cliente {
     public static ClienteBancoIdsInterface banco;
     static Scanner in = new Scanner (System.in);
     static String nome;
-    static ArrayList<Integer> idsMensagens = new ArrayList<>();
     static ArrayList<String> mensagens = new ArrayList<>();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws MalformedURLException, RemoteException, NotBoundException {
        banco = (ClienteBancoIdsInterface) Naming.lookup("//localhost/BancoId");
-        idsMensagens.add(0);
-        mensagens.add("Ola mundo");
+
         
+        
+        try {//Inicializa a interface RMI que vai funcionar como servidor, dando acesso aos outros clientes aos scripts
         System.out.println("Digite o nome desta máquina: ");
-        nome = in.nextLine();
-        
-        try {
+        nome = "//"+ InetAddress.getLocalHost().getHostAddress() +"/"+ in.nextLine();
+            
+            
             Registry registry = LocateRegistry.createRegistry(1098);
-            System.setProperty( "java.rmi.server.hostname", "192.168.0.3" );//STARTA O TRABALHO SERVIDOR
-            Naming.rebind("//localhost/"+nome, new ClienteThread1(nome));
+            System.setProperty( "java.rmi.server.hostname", "192.168.0.3" );
+            Naming.rebind(nome, new ClienteThread1(nome));
             
             Thread thread = new Thread(new ClienteThread2());//STARTA O TRABALHO CLIENTE
             thread.start();
@@ -50,7 +51,6 @@ public class Cliente {
             Thread.sleep(1000);
             System.out.println("Digite uma mensagem: ");
             mensagens.add(in.nextLine());
-            idsMensagens.add(banco.getId());
             banco.updateId(nome);
         
         }

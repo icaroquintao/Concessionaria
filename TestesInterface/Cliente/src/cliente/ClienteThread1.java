@@ -26,7 +26,7 @@ public class ClienteThread1 extends UnicastRemoteObject implements ClienteClient
 
     @Override
     public String getScript(int id) {
-        return Cliente.mensagens.get(Cliente.idsMensagens.indexOf(id));
+        return Cliente.mensagens.get(id);
         
     }
 }
