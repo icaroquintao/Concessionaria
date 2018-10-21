@@ -19,6 +19,8 @@ public class RevisaoModel {
     VeiculoModel veiculo;
     MecanicoModel mecanico;
 
+    public RevisaoModel(){}
+    
     public RevisaoModel(boolean efetivado, float valorConserto, DataModel dataRevisao, ClienteModel cliente, float valorRevisao, VeiculoModel veiculo, MecanicoModel mecanico) {
         this.efetivado = efetivado;
         this.valorConserto = valorConserto;

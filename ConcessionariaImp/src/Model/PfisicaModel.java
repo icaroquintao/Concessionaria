@@ -12,6 +12,8 @@ package Model;
 public class PfisicaModel extends ClienteModel{
     String cpf;
 
+    public PfisicaModel(){}
+    
     public PfisicaModel(String telefone, String nome, String cep, String complemento, String numero, String numCartao, String numConta, String cpf) {
         this.telefone = telefone;
         this.nome = nome;

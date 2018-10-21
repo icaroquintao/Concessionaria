@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class PvendaModel extends VeiculoModel{
     float precoVenda;
 
+    public PvendaModel(){}
+    
     public PvendaModel(int km, int situacao, String placa, String tipo, String modelo, String montadora, ArrayList<String> cor, float precoVenda) {
         this.km = km;
         this.situacao = situacao;

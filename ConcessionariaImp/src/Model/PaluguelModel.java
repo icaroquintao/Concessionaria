@@ -15,6 +15,8 @@ public class PaluguelModel extends VeiculoModel{
     float precoFixo;
     float precoPorKm;
     
+    public PaluguelModel(){}
+    
     public PaluguelModel(int km, int situacao, String placa, String tipo, String modelo, String montadora, ArrayList<String> cor, float precoFixo, float precoPorKm) {
         this.km = km;
         this.situacao = situacao;

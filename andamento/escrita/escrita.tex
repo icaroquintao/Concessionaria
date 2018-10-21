@@ -9,6 +9,7 @@
 \usepackage{listings}
 \usepackage{indentfirst}
 \usepackage{lmodern}
+\usepackage{hyperref}
 \geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.93cm}
 
 \lstset{numbers=left,
@@ -118,5 +119,24 @@ Outra decisão importante tomada foi com relação a arquitetura \emph{Model-Vie
 Dessa forma, fica claro que o pacote \emph{Model} concentra a maior parte do trabalho, deixando o cronograma inicial (com 1 mês de desenvolvimento de cada pacote) obsoleto, uma vez que o \emph{Model} é a parte mais trabalhosa desse projeto.
 
 Dessa forma, por não ter como trazer o pacote \emph{Model} pronto no momento dessa apresentação, decidimos por criar um programa simples de teste dessas interfaces RMI para demonstrar como será seu funcionamento no futuro.
+
+\section{O que já foi feito?}
+\begin{enumerate}
+	\item Repositório do projeto no GitHub: \url{https://github.com/guilhermemarx14/Concessionaria}
+	\item Diagrama Entidade-Relacionamento do Banco de Dados;
+	\item Esquema Relacional (projeto lógico) do Banco de Dados com definição das tabelas;
+	\item Script de criação do Banco;
+	\item Interface RMI da rede, que será utilizada tanto na comunicação entre Cliente-Banco de IDs quanto entre Cliente-Cliente;
+	\item Objetos Model e Objetos DAO.
+\end{enumerate}
+
+\section{Próximos passos}
+\begin{itemize}
+	\item Prototipação das telas do projeto e definição das consultas possíveis ao Banco.
+	\item Complementação dos Objetos Model e DAO para suportar todas essas possíveis consultas.
+	\item Desenvolvimento dos pacotes View e Controller.
+\end{itemize}
+
+
 
 \end{document}

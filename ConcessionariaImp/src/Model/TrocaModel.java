@@ -13,6 +13,8 @@ public class TrocaModel {
     CompraVendaModel venda;
     CompraVendaModel compra;
 
+    public TrocaModel(){}
+    
     public TrocaModel(CompraVendaModel venda, CompraVendaModel compra) {
         this.venda = venda;
         this.compra = compra;

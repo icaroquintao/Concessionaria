@@ -12,6 +12,8 @@ package Model;
 public class VendedorModel extends FuncionarioModel{
     int porcentagemComissao;
 
+    public VendedorModel(){}
+    
     public VendedorModel(String cpfFuncionario, float salarioFixo, String nome, String telefone, int porcentagemComissao) {
         this.cpfFuncionario = cpfFuncionario;
         this.salarioFixo = salarioFixo;

@@ -21,6 +21,8 @@ public class AluguelModel {
     float multaAtraso;
     boolean finalizado;
 
+    public AluguelModel(){}
+    
     public AluguelModel(PaluguelModel veiculo, ClienteModel cliente, VendedorModel vendedor, RevisaoModel revisao, float valorTotal, int kmRodados, DataModel dataFim, DataModel dataInicio, float multaAtraso, boolean finalizado) {
         this.veiculo = veiculo;
         this.cliente = cliente;

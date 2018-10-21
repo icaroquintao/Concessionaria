@@ -16,6 +16,8 @@ public class CompraVendaModel {
     VendedorModel vendedor;
     PvendaModel veiculo;
 
+    public CompraVendaModel(){}
+    
     public CompraVendaModel(ClienteModel cliente, DataModel dataCompraVenda, VendedorModel vendedor, PvendaModel veiculo) {
         this.cliente = cliente;
         this.dataCompraVenda = dataCompraVenda;

@@ -12,6 +12,8 @@ package Model;
 public class PjuridicaModel extends ClienteModel{
     String cnpj;
 
+    public PjuridicaModel(){}
+    
     public PjuridicaModel(String telefone, String nome, String cep, String complemento, String numero, String numCartao, String numConta, String cnpj) {
         this.telefone = telefone;
         this.nome = nome;

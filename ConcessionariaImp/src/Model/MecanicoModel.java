@@ -12,6 +12,8 @@ package Model;
 public class MecanicoModel extends FuncionarioModel {
     float comissaoPorRevisao;
     
+    public MecanicoModel(){}
+    
     public MecanicoModel(String cpfFuncionario, float salarioFixo, String nome, String telefone, float comissaoPorRevisao) {
         this.cpfFuncionario = cpfFuncionario;
         this.salarioFixo = salarioFixo;
